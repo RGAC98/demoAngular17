@@ -1,1 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
+.imgProfile {
+    height: 150px;
+    width: 100%;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.centerLeft {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.centerRight {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
