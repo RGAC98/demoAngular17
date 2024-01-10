@@ -24,8 +24,6 @@ export class CitasComponent implements OnInit
 
   obtenerCitas()
   {
-    this.api.getCitas().subscribe((res:any) => {
-      console.log(res);
-    });
+    this.api.getCitas().subscribe((res:any) => {});
   }
 }

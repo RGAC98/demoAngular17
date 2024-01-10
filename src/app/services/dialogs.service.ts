@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
 
 //componentes
-import {SharedComponent} from '../shared/shared.component';
+import {DialogsComponent} from '../shared/dialogs/dialogs.component';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +15,7 @@ export class DialogsService
 
   abrirDialog()
   {
-    let dialog = this.dialog.open(SharedComponent, {
+    let dialog = this.dialog.open(DialogsComponent, {
       width: '95%',
       height: '80vh',
       panelClass: 'my-class'
