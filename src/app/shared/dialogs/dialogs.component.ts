@@ -23,6 +23,7 @@ export class DialogsComponent implements OnInit
   selector: number = 0;
 
   //variables para pacientes
+  pacientes: Array<any> = [];
   paciente = {
     id: 0,
     nombre: '',
@@ -44,12 +45,25 @@ export class DialogsComponent implements OnInit
     porcentaje: 0.0
   }
 
+  //variables para citas
+  cita = {
+    id: 0,
+    pci_id: 0,
+    fecha: '',
+    estado: '',
+    desc: ''
+  }
+
   constructor(private dialogRef: MatDialogRef<DialogsComponent>,
               @Inject (MAT_DIALOG_DATA) private data: dialogData,
               private api: BackendService,
               private alert: AlertsService)
   {
     this.seccion = this.data.seccion;
+    if(this.seccion == 'citas')
+    {
+      this.obtenerPacientes();
+    }
   }
 
   ngOnInit(): void 
@@ -61,6 +75,13 @@ export class DialogsComponent implements OnInit
     this.api.postRegistrarPaciente(this.paciente.nombre, this.paciente.dni).subscribe((res:any) => {
       this.alert.correctMessage(res.mensaje);
       this.dialogRef.close();
+    });
+  }
+
+  obtenerPacientes()
+  {
+    this.api.getPacientes().subscribe((res:any) => {
+      this.pacientes = res.pacientes;
     });
   }
 
@@ -77,6 +98,16 @@ export class DialogsComponent implements OnInit
   registrarTratamiento()
   {
     this.api.postRegistrarTratamiento(this.tratamiento.nombre, this.tratamiento.valor, this.tratamiento.porcentaje).subscribe((res:any) => {
+      this.alert.correctMessage(res.mensaje);
+      this.dialogRef.close();
+    });
+  }
+
+  //funciones para citas
+  registrarNuevaCita()
+  {
+    console.log(this.cita);
+    this.api.postRegistrarCita(this.cita.pci_id, this.cita.fecha, 'p', this.cita.desc).subscribe((res:any) => {
       this.alert.correctMessage(res.mensaje);
       this.dialogRef.close();
     });

@@ -45,3 +45,27 @@
         </form>
     </div>
 }
+
+@if (seccion == 'citas'){
+    <div class="center" style="width: 100%; height: 100%;">
+        <form class="form">
+            <p class="form-title">Registro de nueva cita</p>
+            <div class="input-container">
+                <select class="texto-area" [(ngModel)]="cita.pci_id" [ngModelOptions]="{standalone: true}">
+                    <option value=0>Selecciona un paciente</option>
+                    @for (paciente of pacientes; track paciente) 
+                    {
+                        <option [value]="paciente.pci_id">{{paciente.pci_nombre}}</option>
+                    }
+                </select>
+            </div>
+            <div class="input-container">
+               <input type="date" placeholder="Fecha de cita" [(ngModel)]="cita.fecha" [ngModelOptions]="{standalone: true}" >
+            </div>
+            <div class="input-container">
+                <textarea class="texto-area" type="text" placeholder="Descripción de cita" [(ngModel)]="cita.desc" [ngModelOptions]="{standalone: true}"></textarea>
+            </div>
+            <button (click)="registrarNuevaCita()" class="submit">Crear cita</button>
+        </form>
+    </div>
+}

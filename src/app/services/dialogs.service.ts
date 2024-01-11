@@ -17,8 +17,8 @@ export class DialogsService
   {
     let dialog = this.dialog.open(DialogsComponent, {
       data: {seccion:seccion},
-      width: '50vw',
-      height: '50vh',
+      width: '30vw',
+      height: '60vh',
       panelClass: 'my-class'
     });
   }

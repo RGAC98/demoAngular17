@@ -50,9 +50,9 @@
             <img src="../../assets/empty.jpg" alt="">
         </div>
         <h1 style="text-align: center;">Sin pacientes registrados</h1>
-        <br>
-        <div class="center">
-            <button (click)="dialogs.abrirDialog('pacientes')" class="btn btn-primary">Registrar paciente</button>
-        </div>
     }
+
+    <button (click)="dialogs.abrirDialog('pacientes')" class="btn btn-outline-primary addButtom" title="Nuevo paciente">
+        <i class="material-icons center text-gray-500 ">add</i>
+    </button>
 </div>

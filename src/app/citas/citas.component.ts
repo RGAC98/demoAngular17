@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 
 //services
 import {BackendService} from '../services/backend.service';
@@ -14,16 +15,27 @@ import {DialogsService} from '../services/dialogs.service';
 
 export class CitasComponent implements OnInit 
 {
-  constructor(private api: BackendService, public dialog: DialogsService)
+  //variable para el observador
+  suscription: any = Subscription;
+
+  //lista de especialistas
+  citas: Array<any> = [];
+
+  constructor(private api: BackendService, public dialogs: DialogsService)
   {}
 
   ngOnInit(): void 
   {
     this.obtenerCitas();
+    this.suscription = this.api.refresh$.subscribe(() => {
+      this.obtenerCitas();
+    })
   }
 
   obtenerCitas()
   {
-    this.api.getCitas().subscribe((res:any) => {});
+    this.api.getCitas().subscribe((res:any) => {
+      this.citas = res.citas;
+    });
   }
 }

@@ -1,0 +1,64 @@
+<div>
+    <div class="px-5">
+        <div class=" shadow-md p-3 mb-5 rounded-2xl">
+            <div class="card-body pt-2 pb-4 table-responsive" style="width: 75vw;">
+                <h1 class="text-3xl "><b>CITAS</b></h1>
+            </div>
+        </div>
+    </div>
+
+    @if(citas.length>0)
+    {
+        <div class="px-5">
+            <div class=" shadow-md p-3 mb-5 rounded-2xl">
+                <div class="card-body pt-2 pb-4 table-responsive" style="width: 75vw;">
+                    <div class="row">
+                        <div class="col">
+                            <div class="row">
+                                <div class="d-flex bd-highlight">
+                                    <div class="flex-grow-1 bd-highlight">
+                                        <div class="center centerD animated fadeIn">
+                                            <table class="table">
+                                                <thead>
+                                                    <th>FECHA</th>
+                                                    <th>PACIENTE</th>
+                                                    <th>DESCRIPCIÓN</th>
+                                                    <th>ESTADO</th>
+                                                    <th>OPCIONES</th>
+                                                </thead>
+                                                <tbody>
+                                                    @for (cita of citas; track cita) 
+                                                    {
+                                                        <tr>
+                                                            <td>{{cita.cit_fecha}}</td>
+                                                            <td>{{cita.cit_pci_id}}</td>
+                                                            <td>{{cita.cit_descripcion}}</td>
+                                                            <td>{{cita.cit_estado}}</td>
+                                                            <td>
+                                                                <button class="btn">algo</button>
+                                                            </td>
+                                                        </tr>
+                                                    }
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }@else
+    {
+        <div class="center centerD" style="width: 30%;">
+            <img src="../../assets/empty.jpg" alt="">
+        </div>
+        <h1 style="text-align: center;">Sin citas agendadas</h1>
+    }
+
+    <button (click)="dialogs.abrirDialog('citas')" class="btn btn-outline-primary addButtom" title="Nueva cita">
+        <i class="material-icons center text-gray-500 ">add</i>
+    </button>
+</div>

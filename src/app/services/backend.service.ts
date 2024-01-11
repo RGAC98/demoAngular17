@@ -28,6 +28,14 @@ export class BackendService
     return this.api.get(this.url+`citas`);
   }
 
+  postRegistrarCita(pci_id:number, fecha:string, estado:string, descripcion:string): Observable<any>
+  {
+    return this.api.post(this.url+`citas`, {pci_id, fecha, estado, descripcion})
+    .pipe(
+      tap(() => {this._refresh$.next();})
+    );
+  }
+
   //servicios para pacientes
   postRegistrarPaciente(nombre:string, dni:string): Observable<any>
   {

@@ -20,13 +20,14 @@
 }
 
 .input-container input,
+.texto-area,
 .form button {
     outline: none;
     border: 1px solid #e5e7eb;
     margin: 8px 0;
 }
 
-.input-container input {
+.input-container input, .texto-area{
     background-color: #fff;
     padding: 1rem;
     padding-right: 3rem;
