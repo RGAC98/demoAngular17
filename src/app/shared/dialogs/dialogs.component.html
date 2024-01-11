@@ -1,1 +1,47 @@
-<p>dialogs works!</p>
+@if (seccion == 'pacientes'){
+    <div class="center" style="width: 100%; height: 100%;">
+        <form class="form">
+            <p class="form-title">Registro de nuevo paciente</p>
+            <div class="input-container">
+               <input type="text" placeholder="Nombre" [(ngModel)]="paciente.nombre" [ngModelOptions]="{standalone: true}" >
+            </div>
+            <div class="input-container">
+               <input type="text" placeholder="Cédula" [(ngModel)]="paciente.dni" [ngModelOptions]="{standalone: true}">
+            </div>
+            <button (click)="registrarPaciente()" class="submit">Registrar</button>
+        </form>
+    </div>
+}
+
+@if (seccion == 'especialistas'){
+    <div class="center" style="width: 100%; height: 100%;">
+        <form class="form">
+            <p class="form-title">Registro de nuevo especialista</p>
+            <div class="input-container">
+               <input type="text" placeholder="Nombre" [(ngModel)]="especialista.nombre" [ngModelOptions]="{standalone: true}" >
+            </div>
+            <div class="input-container">
+               <input type="text" placeholder="Cédula" [(ngModel)]="especialista.dni" [ngModelOptions]="{standalone: true}">
+            </div>
+            <button (click)="registrarEspecialista()" class="submit">Registrar</button>
+        </form>
+    </div>
+}
+
+@if (seccion == 'tratamientos'){
+    <div class="center" style="width: 100%; height: 100%;">
+        <form class="form">
+            <p class="form-title">Registro de nuevo tratamiento</p>
+            <div class="input-container">
+               <input type="text" placeholder="Nombre del tratamiento" [(ngModel)]="tratamiento.nombre" [ngModelOptions]="{standalone: true}" >
+            </div>
+            <div class="input-container">
+               <input type="number" placeholder="Valor de tratamiento" [(ngModel)]="tratamiento.valor" [ngModelOptions]="{standalone: true}">
+            </div>
+            <div class="input-container">
+                <input type="number" placeholder="Porcentaje a cobrar" [(ngModel)]="tratamiento.porcentaje" [ngModelOptions]="{standalone: true}">
+             </div>
+            <button (click)="registrarTratamiento()" class="submit">Registrar</button>
+        </form>
+    </div>
+}

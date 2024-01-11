@@ -13,11 +13,12 @@ export class DialogsService
   constructor(private dialog: MatDialog) 
   {}
 
-  abrirDialog()
+  abrirDialog(seccion:string)
   {
     let dialog = this.dialog.open(DialogsComponent, {
-      width: '95%',
-      height: '80vh',
+      data: {seccion:seccion},
+      width: '50vw',
+      height: '50vh',
       panelClass: 'my-class'
     });
   }

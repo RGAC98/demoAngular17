@@ -1,1 +1,58 @@
-<p>especialistas works!</p>
+<div>
+    <div class="px-5">
+        <div class=" shadow-md p-3 mb-5 rounded-2xl">
+            <div class="card-body pt-2 pb-4 table-responsive" style="width: 75vw;">
+                <h1 class="text-3xl "><b>ESPECIALISTAS</b></h1>
+            </div>
+        </div>
+    </div>
+
+    @if(especialistas.length>0) 
+    {
+        <div class="px-5">
+            <div class=" shadow-md p-3 mb-5 rounded-2xl">
+                <div class="card-body pt-2 pb-4 table-responsive" style="width: 75vw;">
+                    <div class="row">
+                        <div class="col">
+                            <div class="row">
+                                <div class="d-flex bd-highlight">
+                                    <div class="flex-grow-1 bd-highlight">
+                                        <div class="center centerD animated fadeIn">
+                                            <table class="table">
+                                                <thead>
+                                                    <th>Nombre</th>
+                                                    <th>Cédula</th>
+                                                    <th>Opciones</th>
+                                                </thead>
+                                                <tbody>
+                                                    @for (especialista of especialistas; track especialista) 
+                                                    {
+                                                        <tr>
+                                                            <td>{{especialista.esp_nombre}}</td>
+                                                            <td>{{especialista.esp_dni}}</td>
+                                                            <td><button class="btn">algo</button></td>
+                                                        </tr>
+                                                    }
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }@else
+    {
+        <div class="center centerD" style="width: 30%;">
+            <img src="../../assets/empty.jpg" alt="">
+        </div>
+        <h1 style="text-align: center;">Sin especialistas registrados</h1>
+        <br>
+        <div class="center">
+            <button (click)="dialogs.abrirDialog('especialistas')" class="btn btn-primary">Registrar especialista</button>
+        </div>
+    }
+</div>

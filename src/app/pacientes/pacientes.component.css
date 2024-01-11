@@ -1,0 +1,26 @@
+.centerD {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.buttontop {
+    position: absolute;
+    right: 0;
+    background: #59d2b4;
+    padding-bottom: 0.1rem;
+    padding-top: 0.1rem;
+}
+
+
+.card {
+    border-color: #fff !important;
+}
+
+.card:hover {
+    background: #f3f4f6b6;
+    border-color: #f3f4f6b6 !important;
+}
+
+.dropdown-toggle::after {
+    display: none;
+}

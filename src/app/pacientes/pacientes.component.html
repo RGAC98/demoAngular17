@@ -1,1 +1,58 @@
-<p>pacientes works!</p>
+<div>
+    <div class="px-5">
+        <div class=" shadow-md p-3 mb-5 rounded-2xl">
+            <div class="card-body pt-2 pb-4 table-responsive" style="width: 75vw;">
+                <h1 class="text-3xl "><b>PACIENTES</b></h1>
+            </div>
+        </div>
+    </div>
+
+    @if(pacientes.length>0) 
+    {
+        <div class="px-5">
+            <div class=" shadow-md p-3 mb-5 rounded-2xl">
+                <div class="card-body pt-2 pb-4 table-responsive" style="width: 75vw;">
+                    <div class="row">
+                        <div class="col">
+                            <div class="row">
+                                <div class="d-flex bd-highlight">
+                                    <div class="flex-grow-1 bd-highlight">
+                                        <div class="center centerD animated fadeIn">
+                                            <table class="table">
+                                                <thead>
+                                                    <th>Nombre</th>
+                                                    <th>Cédula</th>
+                                                    <th>Opciones</th>
+                                                </thead>
+                                                <tbody>
+                                                    @for (paciente of pacientes; track paciente) 
+                                                    {
+                                                        <tr>
+                                                            <td>{{paciente.pci_nombre}}</td>
+                                                            <td>{{paciente.pci_dni}}</td>
+                                                            <td><button class="btn">algo</button></td>
+                                                        </tr>
+                                                    }
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }@else 
+    {
+        <div class="center centerD" style="width: 30%;">
+            <img src="../../assets/empty.jpg" alt="">
+        </div>
+        <h1 style="text-align: center;">Sin pacientes registrados</h1>
+        <br>
+        <div class="center">
+            <button (click)="dialogs.abrirDialog('pacientes')" class="btn btn-primary">Registrar paciente</button>
+        </div>
+    }
+</div>
